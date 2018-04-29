@@ -20,7 +20,7 @@ class DBHelper {
     }
 
     return idb.open('restaurantDb', 1, function(upgradeDb) {
-      var store = upgradeDb.createObjectStore('restaurantDbs', {
+      const store = upgradeDb.createObjectStore('restaurantDbs', {
         keyPath: 'id'
       });
       store.createIndex('by-id', 'id');
@@ -31,8 +31,8 @@ class DBHelper {
     return DBHelper.openDatabase().then(function(db){
       if(!db) return;
 
-      var tx = db.transaction('restaurantDbs', 'readwrite');
-      var store = tx.objectStore('restaurantDbs');
+      const tx = db.transaction('restaurantDbs', 'readwrite');
+      const store = tx.objectStore('restaurantDbs');
       data.forEach(function(restaurant){
         store.put(restaurant);
       });

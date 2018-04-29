@@ -1,10 +1,9 @@
 var filesToCache = [
   '/',
+  'index.html',
   'restaurant.html',
   'css/styles.css',
   'css/responsive.css',
-  'data/restaurants.json',
-
   'img/1.jpg',
   'img/2.jpg',
   'img/3.jpg',
@@ -30,7 +29,7 @@ var filesToCache = [
   'js/restaurant_info.js'
 ];
 
-let cacheName = 'restaurant-review-cache-v3';
+let cacheName = 'restaurant-review-cache-v7';
 
 // Listen for install event, set callback
 self.addEventListener('install', function (event) {
@@ -42,6 +41,7 @@ self.addEventListener('install', function (event) {
     })
   );
 });
+
 //fetch event in order to cache them
 self.addEventListener('fetch', function (event) {
   console.log('Fetch event for ', event.request.url);
@@ -73,7 +73,7 @@ self.addEventListener('fetch', function (event) {
 self.addEventListener('activate', function (event) {
   console.log('Activating new service worker...');
 
-  var cacheWhitelist = [cacheName];
+  const cacheWhitelist = [cacheName];
 
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
