@@ -4,6 +4,7 @@ var filesToCache = [
   'css/styles.css',
   'css/responsive.css',
   'data/restaurants.json',
+
   'img/1.jpg',
   'img/2.jpg',
   'img/3.jpg',
@@ -29,11 +30,11 @@ var filesToCache = [
   'js/restaurant_info.js'
 ];
 
-var cacheName = 'restaurant-review-cache-v3';
+let cacheName = 'restaurant-review-cache-v3';
 
 // Listen for install event, set callback
 self.addEventListener('install', function (event) {
-  console.log('Attempting to install service worker and cache static assets');
+  console.log('Attempting to install service worker and cache static public');
   event.waitUntil(
     caches.open(cacheName)
     .then(function (cache) {

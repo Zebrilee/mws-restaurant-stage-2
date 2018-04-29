@@ -11,10 +11,8 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta id="theme-color" name="theme-color" content="#d43900">
   <link rel="icon" sizes="192x192" href="img/icon.png">
-  <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="manifest" href="manifest.json">
-  <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <link rel="stylesheet" href="css/responsive.css" type="text/css">
   <title>Restaurant Info</title>
@@ -22,33 +20,25 @@
 
 <body class="inside">
   <a class="skip" href="#restaurant-container" rel="noopener">Skip Google map</a>
-  <!-- Beginning header -->
   <header>
-    <!-- Beginning nav -->
     <nav>
       <h1 role="heading" aria-level="1">
         <a href="/">Restaurant Reviews</a>
       </h1>
     </nav>
-    <!-- Beginning breadcrumb -->
     <ul id="breadcrumb" role="navigation">
       <li role="listitem">
         <a href="/" title="Go to the homepage">Home</a>
       </li>
     </ul>
-    <!-- End breadcrumb -->
-    <!-- End nav -->
   </header>
-  <!-- End header -->
 
-  <!-- Beginning main -->
   <main id="maincontent">
-    <!-- Beginning map -->
+
     <section id="map-container" role="application">
       <div id="map"></div>
     </section>
-    <!-- End map -->
-    <!-- Beginning restaurant -->
+
     <section id="restaurant-container" tabindex="-1">
       <h1 id="restaurant-name" tabindex="0" role="heading" aria-level="1"></h1>
       <picture>
@@ -62,32 +52,24 @@
         <caption id="restaurant-caption">Restaurant Hours</caption>
       </table>
     </section>
-    <!-- end restaurant -->
-    <!-- Beginning reviews -->
+
     <section id="reviews-container">
       <ul id="reviews-list" role="list" tabindex="0"></ul>
     </section>
-    <!-- End reviews -->
-  </main>
-  <!-- End main -->
 
-  <!-- Beginning footer -->
+  </main>
+
   <footer id="footer">
     Copyright (c) 2017
     <a href="/" title="Go to the restaurant reviews homepage">
       <strong>Restaurant Reviews</strong>
     </a> All Rights Reserved.
   </footer>
-  <!-- End footer -->
 
-  <!-- Beginning scripts -->
-  <!-- Main javascript file -->
+  <script type="application/javascript" src="js/idb.js"></script>
   <script type="text/javascript" src="js/restaurant_info.js"></script>
-  <!-- Database helpers -->
   <script type="text/javascript" src="js/dbhelper.js"></script>
-  <!-- Google Maps -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&libraries=places&callback=initMap"></script>
-  <!-- End scripts -->
 
 </body>
 
