@@ -1,5 +1,3 @@
-import idb from 'idb';
-
 /**
  * Common database helper functions.
  */
@@ -42,29 +40,42 @@ class DBHelper {
     });
   }
 
+  static addRestaurantsFromAPI(){
+    return fetch(DBHelper.DATABASE_URL)
+      .then(function(response){
+        return response.json();
+    }).then(restaurants => {
+      DBHelper.saveToDatabase(restaurants);
+      return restaurants;
+    });
+  }
 
+  static getStoredRestaurants() {
+    return DBHelper.openDatabase().then(function(db){
+      if(!db) return;
 
-
-
-
+      var store = db.transaction('restaurantDbs').objectStore('restaurantDbs');
+      return store.getAll();
+    });
+  }
 
   /**
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
-        callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
+    return DBHelper.getStoredRestaurants().then(restaurants => {
+      if(restaurants.length) {
+        return Promise.resolve(restaurants);
+      } else {
+        return DBHelper.addRestaurantsFromAPI();
       }
-    };
-    xhr.send();
+    })
+    .then(restaurants=> {
+      callback(null, restaurants);
+    })
+    .catch(error => {
+      callback(error, null);
+    })
   }
 
   /**
@@ -185,12 +196,23 @@ class DBHelper {
   /**
    * Restaurant image URL.
    */
+
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    if (restaurant.photograph) {
+      return (`/img/${restaurant.photograph}.jpg`);
+    } else {
+      return (`/img/${restaurant.id}.jpg`);
+    }
   }
   static smallImageUrlForRestaurant(restaurant) {
-    return (`/img/small-${restaurant.photograph}`);
+    if (restaurant.photograph) {
+      return (`/img/small-${restaurant.photograph}.jpg`);
+    } else {
+      return (`/img/small-${restaurant.id}.jpg`);
+    }
   }
+
+
 
   /**
    * Map marker for a restaurant.
