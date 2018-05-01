@@ -26,10 +26,10 @@ li {
   margin: 0;
   padding: 0;
 }
-#map {
+/* #map {
   height: 400px;
   width: 100%;
-}
+} */
 a.skip {
   position: absolute;
   top: -40px;

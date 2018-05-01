@@ -27,14 +27,15 @@ var filesToCache = [
   'img/small-8.jpg',
   'img/small-9.jpg',
   'img/small-10.jpg',
-  'js/main.js',
-  'js/dbhelper.js',
+  'js/main.min.js',
+  'js/dbhelper.min.js',
   'js/idb.min.js',
-  'js/restaurant_info.js'
+  'js/lazysizes.min.js',
+  'js/restaurant_info.min.js'
 ];
 
 
-let cacheName = 'restaurant-review-cache-v8';
+let cacheName = 'restaurant-review-cache-v9';
 
 // Listen for install event, set callback
 self.addEventListener('install', function (event) {
