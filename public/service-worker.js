@@ -33,6 +33,7 @@ var filesToCache = [
   'js/restaurant_info.js'
 ];
 
+
 let cacheName = 'restaurant-review-cache-v8';
 
 // Listen for install event, set callback

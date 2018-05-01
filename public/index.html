@@ -63,17 +63,10 @@
       <strong>Restaurant Reviews</strong>
     </a> All Rights Reserved.
   </footer>
-  <script src="js/lozad.min.js"></script>
+  <script src="js/lazysizes.min.js" async=""></script>
+  <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <script type="application/javascript" src="js/idb.min.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
-  <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
-  <script>
-    // Lazy load image call - Initialize library to lazy load images
-    const observer = lozad('.lozad', {threshold: 0.1})
-    const pictureObserver = lozad('.lozad-picture', {threshold: 0.1})
-    observer.observe()
-    pictureObserver.observe()
-  </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChvEOI09hD9VMHQXJuONirhvptKrB6cLI&libraries=places&callback=initMap"></script>
 </body>
 

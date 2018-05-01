@@ -139,9 +139,9 @@ createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
   const image = document.createElement('img');
-  image.className = 'lozad restaurant-img ';
+  image.className = 'lazyload restaurant-img ';
   image.dataset.src = DBHelper.smallImageUrlForRestaurant(restaurant);
-  image.src= DBHelper.smallImageUrlForRestaurant(restaurant)
+  image.src= "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
   image.alt = restaurant.name + ' Restaurant';
   li.append(image);
 
