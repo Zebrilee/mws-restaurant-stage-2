@@ -1,8 +1,8 @@
 let restaurants,
-  neighborhoods,
-  cuisines
-var map
-var markers = []
+    neighborhoods,
+    cuisines;
+var map;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -138,27 +138,12 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
-  const picture = document.createElement('picture');
-  li.append(picture);
-
-  /* add two sources with srcset and media for the picture tag */
-  const sourceSmall = document.createElement('source');
-  sourceSmall.setAttribute('class', 'source-small');
-  sourceSmall.srcset = DBHelper.smallImageUrlForRestaurant(restaurant) + ' 1x';
-  sourceSmall.media = '(max-width: 450px)';
-  picture.append(sourceSmall);
-
-  const sourceLarge = document.createElement('source');
-  sourceLarge.setAttribute('class', 'source-Large');
-  sourceLarge.srcset = DBHelper.imageUrlForRestaurant(restaurant);
-  sourceLarge.media = '(min-width: 451px)';
-  picture.append(sourceLarge);
-
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.className = 'lozad restaurant-img ';
+  image.dataset.src = DBHelper.smallImageUrlForRestaurant(restaurant);
+  image.src= DBHelper.smallImageUrlForRestaurant(restaurant)
   image.alt = restaurant.name + ' Restaurant';
-  picture.append(image);
+  li.append(image);
 
   const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
