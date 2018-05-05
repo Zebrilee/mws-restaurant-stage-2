@@ -4,7 +4,6 @@ var filesToCache = [
   'restaurant.html',
   'css/main.css',
   'css/other.css',
-  'css/global.css',
   'css/responsive.css',
   'img/1.jpg',
   'img/2.jpg',
@@ -34,11 +33,11 @@ var filesToCache = [
 ];
 
 
-let cacheName = 'restaurant-review-cache-v10';
+let cacheName = 'restaurant-review-cache-v11';
 
 // Listen for install event, set callback
 self.addEventListener('install', function (event) {
-  console.log('Attempting to install service worker and cache static public');
+  //console.log('Attempting to install service worker and cache static public');
   event.waitUntil(
     caches.open(cacheName)
     .then(function (cache) {
@@ -49,14 +48,14 @@ self.addEventListener('install', function (event) {
 
 //fetch event in order to cache them
 self.addEventListener('fetch', function (event) {
-  console.log('Fetch event for ', event.request.url);
+  //console.log('Fetch event for ', event.request.url);
   event.respondWith(
     caches.match(event.request).then(function (response) {
       if (response) {
-        console.log('Found ', event.request.url, ' in cache');
+        //console.log('Found ', event.request.url, ' in cache');
         return response;
       }
-      console.log('Network request for ', event.request.url);
+      //console.log('Network request for ', event.request.url);
       return fetch(event.request).then(function (response) {
         if (response.status === 404) {
           return caches.match('404.html');
@@ -69,14 +68,14 @@ self.addEventListener('fetch', function (event) {
         });
       });
     }).catch(function (error) {
-      console.log('Error, ', error);
+      //console.log('Error, ', error);
       return caches.match('offline.html');
     })
   );
 });
 
 self.addEventListener('activate', function (event) {
-  console.log('Activating new service worker...');
+  //console.log('Activating new service worker...');
 
   const cacheWhitelist = [cacheName];
 
