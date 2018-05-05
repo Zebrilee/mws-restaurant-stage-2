@@ -1,3 +1,22 @@
+# Restaurant Review Project Stage 2
+
+## Running website in localhost
+### Frontend
+launch `python -m SimpleHTTPServer 8000` in  the folder MWS-RESTAURANT-STAGE-2/public
+
+### Backend
+launch sails server through the command `node server` in the
+folder MWS-RESTAURANT-STAGE-2
+
+
+The folder src contains all the frontend files before gulp optimizations
+
+
+------------------------------------------------------------------------------------------
+
+# **Udacity instructor's notes**
+
+
 # Local Development API Server
 ## Usage
 #### Get Restaurants
@@ -26,6 +45,7 @@ Local server
 _Location of server = /server_
 Server depends on [node.js LTS Version: v6.11.2 ](https://nodejs.org/en/download/), [npm](https://www.npmjs.com/get-npm), and [sails.js](http://sailsjs.com/)
 Please make sure you have these installed before proceeding forward.
+
 
 Great, you are ready to proceed forward; awesome!
 

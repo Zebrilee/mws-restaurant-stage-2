@@ -5,8 +5,7 @@ var filesToCache = [
   'css/main.css',
   'css/other.css',
   'css/global.css',
-  'css/media-medium.css',
-  'css/media-small.css',
+  'css/responsive.css',
   'img/1.jpg',
   'img/2.jpg',
   'img/3.jpg',
@@ -35,7 +34,7 @@ var filesToCache = [
 ];
 
 
-let cacheName = 'restaurant-review-cache-v9';
+let cacheName = 'restaurant-review-cache-v10';
 
 // Listen for install event, set callback
 self.addEventListener('install', function (event) {
